@@ -45,7 +45,7 @@ class AccountPathsOverlay extends Overlay {
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        if (plugin == null || plugin.title == null || plugin.title == "" || plugin.description == null || plugin.description == "")
+        if (plugin == null || plugin.title == null || plugin.title.equals("") || plugin.description == null || plugin.description.equals(""))
         {
             return null;
         }
