@@ -58,6 +58,15 @@ class AccountPathsOverlay extends Overlay {
                 .leftColor(TITLED_CONTENT_COLOR)
                 .build());
 
+        if (config.nextStep() && plugin.nextTitle != null && !plugin.nextTitle.equals(""))
+        {
+            panelComponent.getChildren().add(LineComponent.builder()
+                    .left("Next:")
+                    .right(plugin.nextTitle)
+                    .rightColor(TITLED_CONTENT_COLOR)
+                    .build());
+        }
+
         return panelComponent.render(graphics);
     }
 }

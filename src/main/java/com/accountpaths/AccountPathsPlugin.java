@@ -29,7 +29,7 @@ import java.util.List;
 
 @Slf4j
 @PluginDescriptor(
-        name = "<html>[<font color=#fa9b17>H<font color=#ffffff>] Account Paths",
+        name = "Account Paths",
         enabledByDefault = false,
         description = "AccountPaths"
 )
@@ -50,16 +50,15 @@ public class AccountPathsPlugin extends Plugin
     @Inject
     private AccountPathsSceneOverlay sceneOverlay;
 
-    JSONObject jsonObject;
-    JSONArray jsonArray;
+    public boolean dev = true;
+    String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
     public HashMap<WorldPoint, String> currentTiles = new HashMap<>();
-
-    List<String> resourceFileNames = new ArrayList<>();
-
+    public List<String> resourceFileNames = new ArrayList<>();
     public int index = 0;
     public String title = "";
     public String description = "";
+    public String nextTitle = "";
 
     @Provides
     AccountPathsConfig provideConfig(final ConfigManager configManager)
@@ -102,6 +101,12 @@ public class AccountPathsPlugin extends Plugin
             index = 0;
             loadJson(index);
         }
+
+        if (event.getKey().equals("index"))
+        {
+            index = config.index();
+            loadJson(index);
+        }
     }
 
     public HotkeyListener nextHotkey = new HotkeyListener(() -> config.next()) {
@@ -138,7 +143,11 @@ public class AccountPathsPlugin extends Plugin
     {
         File jsonFile = null;
         JSONObject jsonObject = null;
+        File nextJsonFile = null;
+        JSONObject nextJsonObject = null;
         JSONArray tileArray = null;
+
+        nextTitle = "";
 
         if (index >= resourceFileNames.size())
         {
@@ -146,8 +155,34 @@ public class AccountPathsPlugin extends Plugin
         }
 
         try {
-            jsonFile = getFileFromURL(getResourceURL("com/accountpaths/" + config.path().getPath() + "/" + resourceFileNames.get(index)));
+            if (dev)
+            {
+                jsonFile = new File(folderPath + "/" + config.path().getPath() + "/" + resourceFileNames.get(index));
+
+                if (index + 1 < resourceFileNames.size())
+                {
+                    nextJsonFile = new File(folderPath + "/" + config.path().getPath() + "/" + resourceFileNames.get(index + 1));
+                }
+            } else {
+                jsonFile = getFileFromURL(getResourceURL("com/accountpaths/" + config.path().getPath() + "/" + resourceFileNames.get(index)));
+
+                if (index + 1 < resourceFileNames.size())
+                {
+                    nextJsonFile = getFileFromURL(getResourceURL("com/accountpaths/" + config.path().getPath() + "/" + resourceFileNames.get(index + 1)));
+                }
+            }
+
             jsonObject = parseJSONFile(jsonFile.getPath());
+
+            if (nextJsonFile != null && nextJsonFile.exists())
+            {
+                nextJsonObject = parseJSONFile(nextJsonFile.getPath());
+
+                if (nextJsonObject != null)
+                {
+                    nextTitle = nextJsonObject.getString("title");
+                }
+            }
 
             if (jsonObject == null)
             {
@@ -190,6 +225,35 @@ public class AccountPathsPlugin extends Plugin
 
     public void getJsonResources()
     {
+        if (dev)
+        {
+            File folder = new File(folderPath + config.path().getPath());
+
+            if (folder == null)
+            {
+                return;
+            }
+
+            File[] listFolder = folder.listFiles();
+
+            if (listFolder == null)
+            {
+                return;
+            }
+
+            List<String> list = new ArrayList<>();
+
+            for (int i = 0; i < listFolder.length; i++)
+            {
+                if (listFolder[i].isFile())
+                {
+                    list.add(listFolder[i].getName());
+                }
+            }
+
+            resourceFileNames = list;
+        }
+
         try {
             resourceFileNames = getResourceFiles("com/accountpaths/" + config.path().getPath());
         } catch (IOException e) {

@@ -42,8 +42,8 @@ public class AccountPathsSceneOverlay extends Overlay {
         {
             for (WorldPoint key : plugin.currentTiles.keySet())
             {
-                renderWorldPoint(graphics, key, Color.WHITE);
-                renderWorldPointText(graphics, key, plugin.currentTiles.get(key), Color.WHITE);
+                renderWorldPoint(graphics, key, config.tileColour());
+                renderWorldPointText(graphics, key, plugin.currentTiles.get(key), config.labelColour());
             }
         }
 
