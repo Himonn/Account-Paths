@@ -47,7 +47,8 @@ public interface AccountPathsConfig extends Config {
         HARDCORE("hardcore"),
         IRONMAN("ironman"),
         MAIN("main"),
-        DS2("ds2");
+        DS2("ds2"),
+        COOK_ASSISTANT("cooks_assistant");
 
         @Getter
         private String path;
