@@ -50,7 +50,7 @@ public class AccountPathsPlugin extends Plugin
     @Inject
     private AccountPathsSceneOverlay sceneOverlay;
 
-    public boolean dev = true;
+    public boolean dev = false;
     String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
     public HashMap<WorldPoint, String> currentTiles = new HashMap<>();
