@@ -50,7 +50,7 @@ public class AccountPathsPlugin extends Plugin
     @Inject
     private AccountPathsSceneOverlay sceneOverlay;
 
-    public boolean dev = true;
+    public boolean dev = false;
     String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
     public HashMap<WorldPoint, String> currentTiles = new HashMap<>();
@@ -59,6 +59,7 @@ public class AccountPathsPlugin extends Plugin
     public String title = "";
     public String description = "";
     public String nextTitle = "";
+    public String nextDescription = "";
 
     @Provides
     AccountPathsConfig provideConfig(final ConfigManager configManager)
@@ -148,6 +149,7 @@ public class AccountPathsPlugin extends Plugin
         JSONArray tileArray = null;
 
         nextTitle = "";
+        nextDescription = "";
 
         if (index >= resourceFileNames.size())
         {
@@ -181,6 +183,7 @@ public class AccountPathsPlugin extends Plugin
                 if (nextJsonObject != null)
                 {
                     nextTitle = nextJsonObject.getString("title");
+                    nextDescription = nextJsonObject.getString("description");
                 }
             }
 

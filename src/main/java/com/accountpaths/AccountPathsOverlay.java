@@ -51,7 +51,12 @@ class AccountPathsOverlay extends Overlay {
         }
 
         panelComponent.getChildren().clear();
-        panelComponent.getChildren().add(TitleComponent.builder().text(plugin.title).build());
+        panelComponent.getChildren().add(TitleComponent.builder().text("Path").build());
+        panelComponent.getChildren().add(LineComponent.builder()
+                .left("Task:")
+                .right(plugin.title)
+                .rightColor(TITLED_CONTENT_COLOR)
+                .build());
 //        panelComponent.getChildren().add(LineComponent.builder().left("Description:").build());
         panelComponent.getChildren().add(LineComponent.builder()
                 .left(plugin.description)
@@ -64,6 +69,14 @@ class AccountPathsOverlay extends Overlay {
                     .left("Next:")
                     .right(plugin.nextTitle)
                     .rightColor(TITLED_CONTENT_COLOR)
+                    .build());
+        }
+
+        if (config.nextStep() && plugin.nextDescription != null && !plugin.nextDescription.equals(""))
+        {
+            panelComponent.getChildren().add(LineComponent.builder()
+                    .left(plugin.nextDescription)
+                    .leftColor(TITLED_CONTENT_COLOR)
                     .build());
         }
 
