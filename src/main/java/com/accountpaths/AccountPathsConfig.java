@@ -28,6 +28,30 @@ public interface AccountPathsConfig extends Config {
     default int index() { return 0; }
 
     @ConfigItem(
+            name = "Highlight Tiles",
+            description = "Highlights tiles on path",
+            position = 2,
+            keyName = "highlightTiles"
+    )
+    default boolean highlightTiles() { return false; }
+
+    @ConfigItem(
+            name = "Draw Path",
+            description = "Draws Path as Arrows",
+            position = 3,
+            keyName = "drawPath"
+    )
+    default boolean drawPath() { return true; }
+
+    @ConfigItem(
+            name = "Draw Labels",
+            description = "Draws labels on tiles with instructions what to do",
+            position = 4,
+            keyName = "drawLabels"
+    )
+    default boolean drawLabels() { return true; }
+
+    @ConfigItem(
             keyName = "next",
             name = "Next Step Hotkey",
             description = "Hotkey to move to next step with",

@@ -2,182 +2,281 @@
   "tiles": [
     {
       "x": 14,
-      "y": 13,
+      "y": 9,
+      "positions": [
+        0,
+        1
+      ],
       "z": 0,
       "label": "Start",
       "region": 12850
     },
     {
-      "x": 14,
-      "y": 15,
+      "x": 12,
+      "y": 10,
+      "positions": [
+        2
+      ],
+      "z": 0,
+      "label": "Test",
+      "region": 12850
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "positions": [
+        3
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "positions": [
+        4
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "positions": [
+        5
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 5,
+      "y": 14,
+      "positions": [
+        6
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 3,
+      "y": 14,
+      "positions": [
+        7
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 3,
+      "y": 16,
+      "positions": [
+        8
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 2,
+      "y": 18,
+      "positions": [
+        9
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 18,
+      "positions": [
+        10
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 62,
+      "y": 18,
+      "positions": [
+        11
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 62,
+      "y": 20,
+      "positions": [
+        12
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 63,
+      "y": 22,
+      "positions": [
+        13
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 63,
+      "y": 24,
+      "positions": [
+        14
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 63,
+      "y": 26,
+      "positions": [
+        15
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 63,
+      "y": 28,
+      "positions": [
+        16
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 63,
+      "y": 30,
+      "positions": [
+        17
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 0,
+      "y": 32,
+      "positions": [
+        18
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 34,
+      "positions": [
+        19
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 1,
+      "y": 36,
+      "positions": [
+        20
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 3,
+      "y": 37,
+      "positions": [
+        21
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 5,
+      "y": 37,
+      "positions": [
+        22
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 7,
+      "y": 37,
+      "positions": [
+        23
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 9,
+      "y": 39,
+      "positions": [
+        24
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 11,
+      "y": 40,
+      "positions": [
+        25
+      ],
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 13,
+      "y": 40,
+      "positions": [
+        26
+      ],
       "z": 0,
       "label": "",
       "region": 12850
     },
     {
       "x": 15,
-      "y": 17,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 16,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 18,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 20,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 22,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 24,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 26,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 28,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 30,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 32,
-      "y": 19,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 32,
-      "y": 21,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 32,
-      "y": 23,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 32,
-      "y": 25,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 32,
-      "y": 27,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 32,
-      "y": 29,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 31,
-      "y": 31,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 29,
-      "y": 33,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 27,
-      "y": 35,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 25,
-      "y": 36,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 24,
-      "y": 38,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 22,
-      "y": 40,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 20,
       "y": 42,
+      "positions": [
+        27
+      ],
       "z": 0,
       "label": "",
       "region": 12850
     },
     {
-      "x": 18,
-      "y": 43,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 16,
+      "x": 15,
       "y": 44,
+      "positions": [
+        28
+      ],
       "z": 0,
       "label": "",
       "region": 12850
@@ -185,6 +284,9 @@
     {
       "x": 14,
       "y": 45,
+      "positions": [
+        29
+      ],
       "z": 0,
       "label": "",
       "region": 12850
@@ -192,25 +294,14 @@
     {
       "x": 12,
       "y": 45,
+      "positions": [
+        30
+      ],
       "z": 0,
       "label": "",
-      "region": 12850
-    },
-    {
-      "x": 10,
-      "y": 44,
-      "z": 0,
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 9,
-      "y": 45,
-      "z": 0,
-      "label": "End",
       "region": 12850
     }
   ],
-  "description": "Sell Tinderbox at general store",
-  "title": "Stage 1"
+  "description": "Test",
+  "title": "Test"
 }
