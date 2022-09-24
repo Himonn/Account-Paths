@@ -3,10 +3,7 @@ package com.accountpaths;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.ObjectComposition;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayLayer;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
+import net.runelite.client.ui.overlay.*;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.runelite.client.ui.overlay.components.TextComponent;
@@ -20,14 +17,11 @@ import static net.runelite.client.plugins.cluescrolls.ClueScrollOverlay.TITLED_C
 
 @Slf4j
 @Singleton
-class AccountPathsOverlay extends Overlay {
+class AccountPathsOverlay extends OverlayPanel {
 
     private final Client client;
     private final AccountPathsConfig config;
     private final AccountPathsPlugin plugin;
-    private final TextComponent textComponent = new TextComponent();
-    private final PanelComponent panelComponent = new PanelComponent();
-
 
     @Inject
     private AccountPathsOverlay(final Client client, final AccountPathsConfig config, final AccountPathsPlugin plugin) {
@@ -45,7 +39,7 @@ class AccountPathsOverlay extends Overlay {
     @Override
     public Dimension render(Graphics2D graphics)
     {
-        if (plugin == null || plugin.title == null || plugin.title == "" || plugin.description == null || plugin.description == "")
+        if (plugin == null || plugin.title == null || plugin.title.equals("") || plugin.description == null || plugin.description.equals(""))
         {
             return null;
         }
@@ -57,7 +51,7 @@ class AccountPathsOverlay extends Overlay {
                 .right(plugin.title)
                 .rightColor(TITLED_CONTENT_COLOR)
                 .build());
-//        panelComponent.getChildren().add(LineComponent.builder().left("Description:").build());
+
         panelComponent.getChildren().add(LineComponent.builder()
                 .left(plugin.description)
                 .leftColor(TITLED_CONTENT_COLOR)

@@ -24,6 +24,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -53,7 +54,8 @@ public class AccountPathsPlugin extends Plugin
     public boolean dev = true;
     String folderPath = "C:\\Users\\micha\\OneDrive\\Desktop\\Radish Remake Andy Plugin\\Repos\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
-    public HashMap<WorldPoint, String> currentTiles = new HashMap<>();
+    public Collection<AccountPathsTile> tileCollection = new ArrayList<>();
+    public HashMap<Integer, AccountPathsTile> tileMap = new HashMap<>();
     public List<String> resourceFileNames = new ArrayList<>();
     public int index = 0;
     public String title = "";
@@ -192,7 +194,7 @@ public class AccountPathsPlugin extends Plugin
                 return;
             }
 
-            currentTiles.clear();
+            tileCollection.clear();
 
             tileArray = jsonObject.getJSONArray("tiles");
             title = jsonObject.getString("title");
@@ -203,7 +205,8 @@ public class AccountPathsPlugin extends Plugin
                 return;
             }
 
-            for (int i = 0; i < tileArray.length(); i++) {
+            for (int i = 0; i < tileArray.length(); i++)
+            {
                 JSONObject tile = tileArray.getJSONObject(i);
 
                 String label = tile.getString("label");
@@ -211,13 +214,30 @@ public class AccountPathsPlugin extends Plugin
                 int y = tile.getInt("y");
                 int z = tile.getInt("z");
                 int region = tile.getInt("region");
+                JSONArray positions = tile.getJSONArray("positions");
 
                 WorldPoint wp = WorldPoint.fromRegion(region, x, y, z);
-                currentTiles.put(wp, label);
-            }
+                AccountPathsTile accountPathsTile = new AccountPathsTile();
+                accountPathsTile.setLabel(label);
+                accountPathsTile.setX(x);
+                accountPathsTile.setY(y);
+                accountPathsTile.setZ(z);
+                accountPathsTile.setRegion(region);
+                accountPathsTile.setWorldPoint(wp);
+                accountPathsTile.setPositions(positions);
 
+                tileCollection.add(accountPathsTile);
+            }
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
+        }
+
+        for (AccountPathsTile tile : tileCollection)
+        {
+            for (Integer position : tile.getPositionList())
+            {
+                tileMap.put(position, tile);
+            }
         }
     }
 
