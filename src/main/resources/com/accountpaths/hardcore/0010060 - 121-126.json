@@ -1,0 +1,321 @@
+{
+  "tiles": [
+    {
+      "x": 14,
+      "y": 51,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 14,
+      "y": 49,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 13,
+      "y": 47,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 6,
+      "y": 44,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 9,
+      "y": 45,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 11,
+      "y": 45,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 58,
+      "y": 47,
+      "z": 0,
+      "label": "1",
+      "region": 12344
+    },
+    {
+      "x": 56,
+      "y": 46,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 54,
+      "y": 45,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 52,
+      "y": 45,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 50,
+      "y": 45,
+      "z": 0,
+      "label": "2",
+      "region": 12344
+    },
+    {
+      "x": 48,
+      "y": 45,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 47,
+      "y": 47,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 47,
+      "y": 49,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 47,
+      "y": 51,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 47,
+      "y": 53,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 47,
+      "y": 55,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 47,
+      "y": 57,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 46,
+      "y": 59,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 44,
+      "y": 61,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 44,
+      "y": 63,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 43,
+      "y": 1,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 41,
+      "y": 3,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 41,
+      "y": 5,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 41,
+      "y": 7,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 39,
+      "y": 9,
+      "z": 0,
+      "label": "3-Take 2 bars and gtfo",
+      "region": 12345
+    },
+    {
+      "x": 39,
+      "y": 7,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 39,
+      "y": 5,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 39,
+      "y": 3,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 41,
+      "y": 1,
+      "z": 0,
+      "label": "",
+      "region": 12345
+    },
+    {
+      "x": 41,
+      "y": 63,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 41,
+      "y": 61,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 42,
+      "y": 59,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 44,
+      "y": 57,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 45,
+      "y": 55,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 60,
+      "y": 47,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 61,
+      "y": 49,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 61,
+      "y": 51,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 59,
+      "y": 52,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 57,
+      "y": 53,
+      "z": 0,
+      "label": "4-Refresh Run Energy",
+      "region": 12344
+    },
+    {
+      "x": 62,
+      "y": 46,
+      "z": 0,
+      "label": "",
+      "region": 12344
+    },
+    {
+      "x": 31,
+      "y": 14,
+      "z": 0,
+      "label": "Minigame Tele to Clan Wars",
+      "region": 11828
+    },
+    {
+      "x": 0,
+      "y": 45,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 2,
+      "y": 44,
+      "z": 0,
+      "label": "",
+      "region": 12600
+    },
+    {
+      "x": 4,
+      "y": 43,
+      "z": 0,
+      "label": "5-Teleport to Castle Wars",
+      "region": 12600
+    }
+  ],
+  "description": "1.)Minigame tele to clan wars - BANK: Inv: Steel axe, GP, Tinderbox, Jug of water, 1 normal log, jug of wines for protection\n\n2.)Step out of Ferox.\n\n3.)pick up all bones and 1 iron bar. hop worlds and do it again.\n\n4.) Drink from the pool,to restore run energy\n\n5.) Teleport to Castle Wars",
+  "title": "121-126"
+}

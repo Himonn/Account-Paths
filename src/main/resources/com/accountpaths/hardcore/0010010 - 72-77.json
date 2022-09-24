@@ -1,0 +1,559 @@
+{
+  "tiles": [
+    {
+      "x": 20,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 20,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 22,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 24,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 26,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 28,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 30,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 32,
+      "y": 19,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 32,
+      "y": 21,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 31,
+      "y": 23,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 31,
+      "y": 25,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 31,
+      "y": 27,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 31,
+      "y": 29,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 31,
+      "y": 31,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 29,
+      "y": 33,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 27,
+      "y": 35,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 25,
+      "y": 36,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 23,
+      "y": 38,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 21,
+      "y": 40,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 20,
+      "y": 42,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 18,
+      "y": 44,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 16,
+      "y": 44,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 14,
+      "y": 45,
+      "z": 0,
+      "label": "1",
+      "region": 12850
+    },
+    {
+      "x": 16,
+      "y": 44,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 18,
+      "y": 43,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 20,
+      "y": 42,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 22,
+      "y": 41,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 24,
+      "y": 41,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 26,
+      "y": 40,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 27,
+      "y": 41,
+      "z": 0,
+      "label": "2",
+      "region": 12850
+    },
+    {
+      "x": 26,
+      "y": 40,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 24,
+      "y": 39,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 22,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 20,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 18,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 16,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 16,
+      "y": 37,
+      "z": 0,
+      "label": "3",
+      "region": 12850
+    },
+    {
+      "x": 14,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 12,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 10,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 8,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 6,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 4,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 2,
+      "y": 37,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 35,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 33,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 31,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 29,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 27,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 25,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 0,
+      "y": 23,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 63,
+      "y": 21,
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 62,
+      "y": 19,
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 63,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 1,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 2,
+      "y": 17,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 2,
+      "y": 15,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 4,
+      "y": 14,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "z": 0,
+      "label": "4",
+      "region": 12850
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "z": 0,
+      "label": "Take Knife",
+      "region": 12850
+    },
+    {
+      "x": 8,
+      "y": 13,
+      "z": 0,
+      "label": "Take bowl and Pot",
+      "region": 12850
+    },
+    {
+      "x": 10,
+      "y": 13,
+      "z": 0,
+      "label": "Take Jug",
+      "region": 12850
+    },
+    {
+      "x": 11,
+      "y": 14,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "z": 0,
+      "label": "Go down stairs",
+      "region": 12850
+    },
+    {
+      "x": 10,
+      "y": 16,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 9,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 9,
+      "y": 20,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 11,
+      "y": 22,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 11,
+      "y": 24,
+      "z": 0,
+      "label": "Fill Jug with water",
+      "region": 12950
+    },
+    {
+      "x": 13,
+      "y": 24,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 15,
+      "y": 24,
+      "z": 0,
+      "label": "Take Bucket and Knife",
+      "region": 12950
+    },
+    {
+      "x": 16,
+      "y": 22,
+      "z": 0,
+      "label": "Dont forget Cabbage",
+      "region": 12950
+    },
+    {
+      "x": 15,
+      "y": 21,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 14,
+      "y": 20,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 12,
+      "y": 20,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 10,
+      "y": 20,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 8,
+      "y": 20,
+      "z": 0,
+      "label": "Boots",
+      "region": 12950
+    },
+    {
+      "x": 8,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    },
+    {
+      "x": 10,
+      "y": 17,
+      "z": 0,
+      "label": "",
+      "region": 12950
+    }
+  ],
+  "description": "1.) As soon as you spawn, sell bronze dagger, sword, axe, wooden shield and shortbow to the general store. Buy a spade\n\n2.)Start X marks the spot quest\n\n3.) Drop your runes and ask for more from the magic tutor, pick up your runes, Set Runes and Ammo to go in pouches automatically\n\n4.)Pick up every item spawn in the castle, including the ones in cellar, fill jug with water, quick hop worlds for 11 cabbage (NEXT)",
+  "title": "72-77"
+}

@@ -1,0 +1,496 @@
+{
+  "tiles": [
+    {
+      "x": 8,
+      "y": 20,
+      "z": 2,
+      "label": "1",
+      "region": 12850
+    },
+    {
+      "x": 7,
+      "y": 18,
+      "z": 2,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 6,
+      "y": 17,
+      "z": 2,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 5,
+      "y": 15,
+      "z": 2,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "z": 2,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "z": 2,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "z": 2,
+      "label": "Go to main floor",
+      "region": 12850
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "z": 0,
+      "label": "Take Mind rune",
+      "region": 12850
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 15,
+      "y": 15,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 15,
+      "y": 17,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 16,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 18,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 20,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 22,
+      "y": 18,
+      "z": 0,
+      "label": "2",
+      "region": 12850
+    },
+    {
+      "x": 24,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 26,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 28,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 30,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 32,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 32,
+      "y": 16,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 32,
+      "y": 14,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 32,
+      "y": 12,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 30,
+      "y": 9,
+      "z": 0,
+      "label": "3 || Dig Here",
+      "region": 12850
+    },
+    {
+      "x": 31,
+      "y": 10,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 33,
+      "y": 9,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 34,
+      "y": 8,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 34,
+      "y": 6,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 33,
+      "y": 3,
+      "z": 0,
+      "label": "Buy steel ax 200gp",
+      "region": 12850
+    },
+    {
+      "x": 35,
+      "y": 4,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 36,
+      "y": 6,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 37,
+      "y": 8,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 37,
+      "y": 10,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 39,
+      "y": 9,
+      "z": 0,
+      "label": "4",
+      "region": 12850
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 36,
+      "y": 8,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 36,
+      "y": 4,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 38,
+      "y": 0,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 41,
+      "y": 60,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 57,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 44,
+      "y": 54,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 50,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 46,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 42,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 38,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 34,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 30,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 26,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 43,
+      "y": 22,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 42,
+      "y": 18,
+      "z": 0,
+      "label": "Start and Finish Quest",
+      "region": 12849
+    },
+    {
+      "x": 40,
+      "y": 14,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 37,
+      "y": 17,
+      "z": 0,
+      "label": "Tele Home when Finished",
+      "region": 6475
+    },
+    {
+      "x": 38,
+      "y": 10,
+      "z": 0,
+      "label": "",
+      "region": 12849
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 4,
+      "y": 14,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 3,
+      "y": 13,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 3,
+      "y": 12,
+      "z": 0,
+      "label": "4 Dig for clue",
+      "region": 12850
+    },
+    {
+      "x": 3,
+      "y": 15,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 2,
+      "y": 17,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 1,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12850
+    },
+    {
+      "x": 63,
+      "y": 18,
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 61,
+      "y": 17,
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 59,
+      "y": 16,
+      "z": 0,
+      "label": "",
+      "region": 12594
+    },
+    {
+      "x": 58,
+      "y": 16,
+      "z": 0,
+      "label": "4 - Rat Safe spot",
+      "region": 12594
+    }
+  ],
+  "description": "1.) Take out GP, Clue(x marks the spot), air talisman, spade, mind/air runes, bread, shrimp, 10 cabbage (keep 1 in) from the bank.\n\n2.)  Thieve men until 5 thieving\n\n3.) Dig up the clue north of bob's axes, buy steel ax.\n\n4.) Chat Father Aereck Start Restless ghost, then travel south and complete Misthalin Mystery.(Home Teleport after quest)\n\n5.)Dig up clue behind Castle and kill a rat for meat (USE SAFE SPOT)",
+  "title": "85-98"
+}
