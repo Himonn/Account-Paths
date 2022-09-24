@@ -30,7 +30,7 @@ import java.util.List;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Account Paths",
+        name = "Radish Remake Andy",
         enabledByDefault = false,
         description = "AccountPaths"
 )
@@ -51,8 +51,8 @@ public class AccountPathsPlugin extends Plugin
     @Inject
     private AccountPathsSceneOverlay sceneOverlay;
 
-    public boolean dev = false;
-    String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
+    public boolean dev = true;
+    String folderPath = "C:\\Users\\micha\\OneDrive\\Desktop\\Radish Remake Andy Plugin\\Repos\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
     public Collection<AccountPathsTile> tileCollection = new ArrayList<>();
     public HashMap<Integer, AccountPathsTile> tileMap = new HashMap<>();
