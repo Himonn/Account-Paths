@@ -4,7 +4,6 @@ import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
@@ -51,9 +50,11 @@ public class AccountPathsPlugin extends Plugin
     @Inject
     private AccountPathsSceneOverlay sceneOverlay;
 
+    // Dev variables
     public boolean dev = true;
     String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
+    // Variables
     public Collection<AccountPathsTile> tileCollection = new ArrayList<>();
     public HashMap<Integer, AccountPathsTile> tileMap = new HashMap<>();
     public List<String> resourceFileNames = new ArrayList<>();
@@ -63,6 +64,7 @@ public class AccountPathsPlugin extends Plugin
     public String nextTitle = "";
     public String nextDescription = "";
 
+    // Hotkeys
     public HotkeyListener nextHotkey = new HotkeyListener(() -> config.next()) {
         @Override
         public void hotkeyPressed()
@@ -106,8 +108,9 @@ public class AccountPathsPlugin extends Plugin
         overlayManager.add(sceneOverlay);
         keyManager.registerKeyListener(nextHotkey);
         keyManager.registerKeyListener(prevHotkey);
-        getJsonResources();
         index = config.index();
+
+        getJsonResources();
         loadJson(index);
     }
 
@@ -142,6 +145,9 @@ public class AccountPathsPlugin extends Plugin
         }
     }
 
+    // Load a specific json from the resourceFileNames List
+    // Convert that JSON into AccountPathsTile collection
+    // Populate HashMap of tiles, and positions for path rendering
     public void loadJson(int index)
     {
         File jsonFile = null;
@@ -246,17 +252,13 @@ public class AccountPathsPlugin extends Plugin
         }
     }
 
+    // Populates the resourceFileNames list with filenames for all of the JSONs for selected path
     public void getJsonResources()
     {
+        // If dev mode, load JSON file names from folder, rather than resources, so we can quickly reload
         if (dev)
         {
             File folder = new File(folderPath + config.path().getPath());
-
-            if (folder == null)
-            {
-                return;
-            }
-
             File[] listFolder = folder.listFiles();
 
             if (listFolder == null)
@@ -266,17 +268,19 @@ public class AccountPathsPlugin extends Plugin
 
             List<String> list = new ArrayList<>();
 
-            for (int i = 0; i < listFolder.length; i++)
+            for (File file : listFolder)
             {
-                if (listFolder[i].isFile())
+                if (file.isFile())
                 {
-                    list.add(listFolder[i].getName());
+                    list.add(file.getName());
                 }
             }
 
             resourceFileNames = list;
+            return;
         }
 
+        // If not dev mode, load json file names from resources
         try {
             resourceFileNames = getResourceFiles("com/accountpaths/" + config.path().getPath());
         } catch (IOException e) {
@@ -284,22 +288,25 @@ public class AccountPathsPlugin extends Plugin
         }
     }
 
+    // Reads specified file, returns parsed JSONObject
     public JSONObject parseJSONFile(String filename) throws JSONException, IOException
     {
         String content = new String(Files.readAllBytes(Paths.get(filename)));
         return new JSONObject(content);
     }
 
+    // Returns a list of file names from the specified path in resources
     private List<String> getResourceFiles(String path) throws IOException
     {
         List<String> filenames = new ArrayList<>();
 
-        try (
-                InputStream in = getResourceAsStream(path);
-                BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
+        try (InputStream in = getResourceAsStream(path);
+             BufferedReader br = new BufferedReader(new InputStreamReader(in)))
+        {
             String resource;
 
-            while ((resource = br.readLine()) != null) {
+            while ((resource = br.readLine()) != null)
+            {
                 filenames.add(resource);
             }
         }
@@ -307,16 +314,19 @@ public class AccountPathsPlugin extends Plugin
         return filenames;
     }
 
+    // Returns URL for specified resource from the current Class Loader
     private URL getResourceURL(String path)
     {
         return getContextClassLoader().getResource(path);
     }
 
+    // Returns the file from the URL Specified
     private File getFileFromURL(URL url) throws URISyntaxException
     {
         return Paths.get(url.toURI()).toFile();
     }
 
+    // Gets all resources from the Class Loader and returns them as stream
     private InputStream getResourceAsStream(String resource)
     {
         final InputStream in
@@ -325,6 +335,8 @@ public class AccountPathsPlugin extends Plugin
         return in == null ? getClass().getResourceAsStream(resource) : in;
     }
 
+    // Returns current classloader, allows us to always return the correct
+    // Class Loader despite different loading methods from intellij / plugin hub jar
     private ClassLoader getContextClassLoader()
     {
         return Thread.currentThread().getContextClassLoader();

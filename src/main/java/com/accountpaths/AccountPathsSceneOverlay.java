@@ -6,7 +6,6 @@ import net.runelite.api.Perspective;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.ui.overlay.*;
-import net.runelite.client.ui.overlay.outline.ModelOutlineRenderer;
 import net.runelite.client.util.ColorUtil;
 
 import javax.inject.Inject;
@@ -14,19 +13,15 @@ import javax.inject.Singleton;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.util.*;
-import java.util.List;
 
 @Singleton
-public class AccountPathsSceneOverlay extends Overlay {
+public class AccountPathsSceneOverlay extends Overlay
+{
     private final Client client;
     @Inject
     private AccountPathsPlugin plugin;
     private final AccountPathsConfig config;
-    private final ModelOutlineRenderer outliner;
 
-    Collection<Integer> consumedPositions = new ArrayList<>();
-
-    private static final int INTERACTING_SHIFT = 0;
     private static final Polygon ARROW_HEAD = new Polygon(
             new int[]{0, -3, 3},
             new int[]{0, -5, -5},
@@ -34,11 +29,10 @@ public class AccountPathsSceneOverlay extends Overlay {
     );
 
     @Inject
-    private AccountPathsSceneOverlay(final Client client, final AccountPathsPlugin plugin, final AccountPathsConfig config, ModelOutlineRenderer outliner) {
+    private AccountPathsSceneOverlay(final Client client, final AccountPathsPlugin plugin, final AccountPathsConfig config) {
         this.client = client;
         this.plugin = plugin;
         this.config = config;
-        this.outliner = outliner;
         setPosition(OverlayPosition.DYNAMIC);
         setLayer(OverlayLayer.ABOVE_SCENE);
         setPriority(OverlayPriority.HIGH);
@@ -47,16 +41,6 @@ public class AccountPathsSceneOverlay extends Overlay {
     @Override
     public Dimension render(Graphics2D graphics)
     {
-//        if (plugin.currentTiles != null && plugin.currentTiles.size() != 0)
-//        {
-//            for (WorldPoint key : plugin.currentTiles.keySet())
-//            {
-//                renderWorldPoint(graphics, key, config.tileColour());
-//                renderWorldPointText(graphics, key, plugin.currentTiles.get(key), config.labelColour());
-////                renderLine(graphics, config.tileColour(),plugin.currentTiles.keySet());
-//            }
-//        }
-
         if (plugin.tileCollection != null && plugin.tileCollection.size() != 0)
         {
             for (AccountPathsTile tile : plugin.tileCollection)
@@ -210,7 +194,7 @@ public class AccountPathsSceneOverlay extends Overlay {
                 int tsx = ts.getX();
                 int tsy = ts.getY();
 
-                graphics.setColor(config.tileColour());
+                graphics.setColor(color);
                 graphics.drawLine(tsx, tsy, fsx, fsy);
 
                 AffineTransform t = new AffineTransform();
