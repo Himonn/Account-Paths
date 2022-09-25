@@ -52,7 +52,7 @@ public class AccountPathsPlugin extends Plugin
     private AccountPathsSceneOverlay sceneOverlay;
 
     public boolean dev = true;
-    String folderPath = "C:\\Users\\micha\\OneDrive\\Desktop\\Radish Remake Andy Plugin\\Repos\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
+    String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
     public Collection<AccountPathsTile> tileCollection = new ArrayList<>();
     public HashMap<Integer, AccountPathsTile> tileMap = new HashMap<>();
@@ -62,6 +62,36 @@ public class AccountPathsPlugin extends Plugin
     public String description = "";
     public String nextTitle = "";
     public String nextDescription = "";
+
+    public HotkeyListener nextHotkey = new HotkeyListener(() -> config.next()) {
+        @Override
+        public void hotkeyPressed()
+        {
+            if (index >= resourceFileNames.size())
+            {
+                return;
+            }
+
+            index++;
+            loadJson(index);
+            configManager.setConfiguration("accountpaths", "index", index);
+        }
+    };
+
+    public HotkeyListener prevHotkey = new HotkeyListener(() -> config.previous()) {
+        @Override
+        public void hotkeyPressed()
+        {
+            if (index == 0)
+            {
+                return;
+            }
+
+            index--;
+            loadJson(index);
+            configManager.setConfiguration("accountpaths", "index", index);
+        }
+    };
 
     @Provides
     AccountPathsConfig provideConfig(final ConfigManager configManager)
@@ -111,36 +141,6 @@ public class AccountPathsPlugin extends Plugin
             loadJson(index);
         }
     }
-
-    public HotkeyListener nextHotkey = new HotkeyListener(() -> config.next()) {
-        @Override
-        public void hotkeyPressed()
-        {
-            if (index >= resourceFileNames.size())
-            {
-                return;
-            }
-
-            index++;
-            loadJson(index);
-            configManager.setConfiguration("accountpaths", "index", index);
-        }
-    };
-
-    public HotkeyListener prevHotkey = new HotkeyListener(() -> config.previous()) {
-        @Override
-        public void hotkeyPressed()
-        {
-            if (index == 0)
-            {
-                return;
-            }
-
-            index--;
-            loadJson(index);
-            configManager.setConfiguration("accountpaths", "index", index);
-        }
-    };
 
     public void loadJson(int index)
     {
@@ -209,6 +209,11 @@ public class AccountPathsPlugin extends Plugin
             {
                 JSONObject tile = tileArray.getJSONObject(i);
 
+                if (!tile.has("positions"))
+                {
+                    continue;
+                }
+
                 String label = tile.getString("label");
                 int x = tile.getInt("x");
                 int y = tile.getInt("y");
@@ -239,11 +244,6 @@ public class AccountPathsPlugin extends Plugin
                 tileMap.put(position, tile);
             }
         }
-    }
-
-    public JSONObject parseJSONFile(String filename) throws JSONException, IOException {
-        String content = new String(Files.readAllBytes(Paths.get(filename)));
-        return new JSONObject(content);
     }
 
     public void getJsonResources()
@@ -282,6 +282,12 @@ public class AccountPathsPlugin extends Plugin
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public JSONObject parseJSONFile(String filename) throws JSONException, IOException
+    {
+        String content = new String(Files.readAllBytes(Paths.get(filename)));
+        return new JSONObject(content);
     }
 
     private List<String> getResourceFiles(String path) throws IOException
