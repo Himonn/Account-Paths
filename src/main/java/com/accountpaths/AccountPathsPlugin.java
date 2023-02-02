@@ -1,6 +1,7 @@
 package com.accountpaths;
 
 import com.google.inject.Provides;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.coords.WorldPoint;
@@ -22,10 +23,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @PluginDescriptor(
@@ -63,6 +61,10 @@ public class AccountPathsPlugin extends Plugin
     public String description = "";
     public String nextTitle = "";
     public String nextDescription = "";
+
+    @Getter
+    private Pathfinder pathfinder;
+    private PathfinderConfig pathfinderConfig;
 
     // Hotkeys
     public HotkeyListener nextHotkey = new HotkeyListener(() -> config.next()) {
@@ -112,6 +114,20 @@ public class AccountPathsPlugin extends Plugin
 
         getJsonResources();
         loadJson(index);
+
+        CollisionMap map = CollisionMap.fromResources();
+        Map<WorldPoint, List<Transport>> transports = Transport.fromResources(config);
+
+        pathfinderConfig = new PathfinderConfig(map, transports, client);
+
+        testPathFind();
+    }
+
+    public void testPathFind()
+    {
+        pathfinder = new Pathfinder(client.getLocalPlayer().getWorldLocation(), client.getLocalPlayer().getWorldLocation().dx(10), pathfinderConfig);
+
+
     }
 
     @Override

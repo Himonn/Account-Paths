@@ -1,28 +1,40 @@
 {
   "tiles": [
     {
-      "x": 14,
-      "y": 13,
-      "z": 0,
-      "positions": [1],
-      "label": "DS2",
-      "region": 12850
+      "start":
+      {
+        "x": 14,
+        "y": 13,
+        "z": 0,
+        "label": "P1",
+        "region": 12850
+      },
+      "end":
+      {
+        "x": 15,
+        "y": 17,
+        "z": 0,
+        "label": "P1END",
+        "region": 12850
+      }
     },
     {
-      "x": 14,
-      "y": 15,
-      "z": 0,
-      "positions": [2],
-      "label": "",
-      "region": 12850
-    },
-    {
-      "x": 15,
-      "y": 17,
-      "z": 0,
-      "positions": [3],
-      "label": "",
-      "region": 12850
+      "start":
+      {
+        "x": 24,
+        "y": 13,
+        "z": 0,
+        "label": "P2",
+        "region": 12850
+      },
+      "end":
+      {
+        "x": 25,
+        "y": 17,
+        "z": 0,
+        "label": "P2END",
+        "region": 12850
+      }
     }
   ],
   "description": "Sell Tinderbox at general store",

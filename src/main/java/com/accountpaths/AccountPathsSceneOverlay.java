@@ -62,6 +62,16 @@ public class AccountPathsSceneOverlay extends Overlay
             renderLine(graphics, config.tileColour(), plugin.tileMap);
         }
 
+        if (plugin.getPathfinder() != null)
+        {
+            for (WorldPoint wp : plugin.getPathfinder().getPath())
+            {
+                renderWorldPoint(graphics, wp, config.tileColour());
+            }
+        }
+
+
+
         return null;
     }
 
