@@ -4,9 +4,10 @@ This plugin draws a path between tiles for the user, with labels and instruction
 
 ## Usage (Contributing paths)
 
-- Generate path of tiles from [Explv's map](https://explv.github.io/?centreX=3108&centreY=3313&centreZ=0&zoom=7) as an Array, in RuneLite format
-- Load up GUI, set parameters, paste the output, click to create JSON
-- Add to relevant resources folder with appropriate filename `00X00X - Name.json`
+- Generate path of tiles ingame by typing `::gen` to enter generation mode
+- Shift right click any location ingame to set start, and end locations, as well as start and end labels
+- Shift right click to copy json object
+- Append to relevant JSON in resources folder with appropriate filename `00X00X - Name.json`
 
 ## Contact
 
