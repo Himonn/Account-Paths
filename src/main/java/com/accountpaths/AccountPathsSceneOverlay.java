@@ -13,6 +13,7 @@ import javax.inject.Singleton;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.util.*;
+import java.util.List;
 
 @Singleton
 public class AccountPathsSceneOverlay extends Overlay
@@ -47,19 +48,23 @@ public class AccountPathsSceneOverlay extends Overlay
             {
                 if (config.highlightTiles())
                 {
-                    renderWorldPoint(graphics, tile.getWorldPoint(), config.tileColour());
+                    for (WorldPoint wp : tile.getPathfinder().getPath())
+                    {
+                        renderWorldPoint(graphics, wp, config.tileColour());
+                    }
                 }
 
                 if (config.drawLabels())
                 {
-                    renderWorldPointText(graphics, tile.getWorldPoint(), tile.getLabel(), config.labelColour());
+                    renderWorldPointText(graphics, tile.getStart(), tile.getStartLabel(), config.labelColour());
+                    renderWorldPointText(graphics, tile.getEnd(), tile.getEndLabel(), config.labelColour());
+                }
+
+                if (config.drawPath())
+                {
+                    renderLine(graphics, config.tileColour(), tile);
                 }
             }
-        }
-
-        if (config.drawPath())
-        {
-            renderLine(graphics, config.tileColour(), plugin.tileMap);
         }
 
         if (plugin.getPathfinder() != null)
@@ -70,6 +75,15 @@ public class AccountPathsSceneOverlay extends Overlay
             }
         }
 
+        if (plugin.start != null && plugin.startLabel != null && !plugin.startLabel.equals(""))
+        {
+            renderWorldPointText(graphics, plugin.start, plugin.startLabel, Color.WHITE);
+        }
+
+        if (plugin.end != null && plugin.endLabel != null && !plugin.endLabel.equals(""))
+        {
+            renderWorldPointText(graphics, plugin.end, plugin.endLabel, Color.WHITE);
+        }
 
 
         return null;
@@ -154,24 +168,18 @@ public class AccountPathsSceneOverlay extends Overlay
         }
     }
 
-    private void renderLine(Graphics2D graphics, Color color, HashMap<Integer, AccountPathsTile> points)
+    private void renderLine(Graphics2D graphics, Color color, AccountPathsTile apt)
     {
-        for (Integer index : points.keySet())
+        List<WorldPoint> path = apt.getPathfinder().getPath();
+
+        for (int i = 0; i < path.size() - 1; i++)
         {
-            AccountPathsTile tile = points.get(index);
-            OptionalInt endint = points.keySet().stream().filter(i -> i > index).mapToInt(i -> i).min();
-            WorldPoint start = tile.getWorldPoint();
+            WorldPoint base = path.get(i);
+            WorldPoint tip = path.get(i+1);
 
-            if (!endint.isPresent())
+            if (base != null && tip != null)
             {
-                return;
-            }
-
-            WorldPoint end = points.get(endint.getAsInt()).getWorldPoint();
-
-            if (start != null && end != null)
-            {
-                LocalPoint fl = LocalPoint.fromWorld(client, start);
+                LocalPoint fl = LocalPoint.fromWorld(client, base);
 
                 if (fl == null)
                 {
@@ -188,7 +196,7 @@ public class AccountPathsSceneOverlay extends Overlay
                 int fsx = fs.getX();
                 int fsy = fs.getY();
 
-                LocalPoint tl = LocalPoint.fromWorld(client, end);
+                LocalPoint tl = LocalPoint.fromWorld(client, tip);
 
                 if (tl == null)
                 {

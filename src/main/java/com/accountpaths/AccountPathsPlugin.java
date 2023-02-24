@@ -1,29 +1,43 @@
 package com.accountpaths;
 
+import com.google.common.base.Strings;
 import com.google.inject.Provides;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.Client;
+import net.runelite.api.*;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.events.CommandExecuted;
+import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.MenuEntryAdded;
+import net.runelite.client.chat.ChatColorType;
+import net.runelite.client.chat.ChatMessageBuilder;
+import net.runelite.client.chat.ChatMessageManager;
+import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
+import net.runelite.client.game.chatbox.ChatboxPanelManager;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.HotkeyListener;
+import net.runelite.client.util.Text;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.List;
 
 @Slf4j
 @PluginDescriptor(
@@ -47,14 +61,23 @@ public class AccountPathsPlugin extends Plugin
     private AccountPathsOverlay overlay;
     @Inject
     private AccountPathsSceneOverlay sceneOverlay;
+    @Inject
+    private ChatMessageManager chatMessageManager;
+    @Inject
+    private ChatboxPanelManager chatboxPanelManager;
 
     // Dev variables
     public boolean dev = true;
     String folderPath = "C:\\Users\\Simon\\IdeaProjects\\Plugin Hub\\Account-Paths\\src\\main\\resources\\com\\accountpaths\\";
 
+    public boolean generating = false;
+    public WorldPoint start = null;
+    public WorldPoint end = null;
+    public String startLabel = null;
+    public String endLabel = null;
+
     // Variables
     public Collection<AccountPathsTile> tileCollection = new ArrayList<>();
-    public HashMap<Integer, AccountPathsTile> tileMap = new HashMap<>();
     public List<String> resourceFileNames = new ArrayList<>();
     public int index = 0;
     public String title = "";
@@ -78,7 +101,7 @@ public class AccountPathsPlugin extends Plugin
 
             index++;
             loadJson(index);
-            configManager.setConfiguration("accountpaths", "index", index);
+            config.setIndex(String.valueOf(index));
         }
     };
 
@@ -93,7 +116,7 @@ public class AccountPathsPlugin extends Plugin
 
             index--;
             loadJson(index);
-            configManager.setConfiguration("accountpaths", "index", index);
+            config.setIndex(String.valueOf(index));
         }
     };
 
@@ -119,15 +142,6 @@ public class AccountPathsPlugin extends Plugin
         Map<WorldPoint, List<Transport>> transports = Transport.fromResources(config);
 
         pathfinderConfig = new PathfinderConfig(map, transports, client);
-
-        testPathFind();
-    }
-
-    public void testPathFind()
-    {
-        pathfinder = new Pathfinder(client.getLocalPlayer().getWorldLocation(), client.getLocalPlayer().getWorldLocation().dx(10), pathfinderConfig);
-
-
     }
 
     @Override
@@ -159,6 +173,167 @@ public class AccountPathsPlugin extends Plugin
             index = config.index();
             loadJson(index);
         }
+    }
+
+    @Subscribe
+    public void onCommandExecuted(CommandExecuted event)
+    {
+        if (event.getCommand().equals("gen"))
+        {
+            generating = !generating;
+            sendGameMessage(String.format("Generating: %s", generating));
+        }
+    }
+
+    @Subscribe
+    public void onMenuEntryAdded(MenuEntryAdded event)
+    {
+        if (client.isKeyPressed(KeyCode.KC_SHIFT) && event.getType() == MenuAction.WALK.getId() && (generating || dev))
+        {
+            client.createMenuEntry(-1)
+                    .setOption(ColorUtil.prependColorTag("Set Path Start", Color.ORANGE))
+                    .setType(MenuAction.RUNELITE)
+                    .onClick(this::setTile);
+
+            client.createMenuEntry(-2)
+                    .setOption(ColorUtil.prependColorTag("Set Path End", Color.ORANGE))
+                    .setType(MenuAction.RUNELITE)
+                    .onClick(this::setTile);
+
+            if (start != null)
+            {
+                client.createMenuEntry(-3)
+                        .setOption(ColorUtil.prependColorTag("Set Start Label", Color.ORANGE))
+                        .setType(MenuAction.RUNELITE)
+                        .onClick(this::label);
+            }
+
+            if (end != null)
+            {
+                client.createMenuEntry(-4)
+                        .setOption(ColorUtil.prependColorTag("Set End Label", Color.ORANGE))
+                        .setType(MenuAction.RUNELITE)
+                        .onClick(this::label);
+            }
+
+            if (pathfinder != null)
+            {
+                client.createMenuEntry(-5)
+                        .setOption(ColorUtil.prependColorTag("Copy JSON", Color.ORANGE))
+                        .setType(MenuAction.RUNELITE)
+                        .onClick(this::copyJson);
+            }
+        }
+    }
+
+    @Subscribe
+    public void onGameStateChanged(GameStateChanged event)
+    {
+        if (event.getGameState().equals(GameState.LOGGED_IN))
+        {
+            loadJson(index);
+        }
+    }
+
+    public void copyJson(MenuEntry menuEntry)
+    {
+        JSONObject startObject = getObject(start, startLabel);
+        JSONObject endObject = getObject(end, endLabel);
+
+        JSONObject copyable = new JSONObject();
+        copyable.put("start", startObject);
+        copyable.put("end", endObject);
+
+        String copyString = copyable.toString();
+        final StringSelection stringSelection = new StringSelection(Text.removeTags(copyString));
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+    }
+
+    private JSONObject getObject(WorldPoint end, String endLabel) {
+        JSONObject object = new JSONObject();
+        object.put("x", end.getRegionX());
+        object.put("y", end.getRegionY());
+        object.put("z", end.getPlane());
+        object.put("label", endLabel);
+        object.put("region", end.getRegionID());
+
+        return object;
+    }
+
+    private void setTile(MenuEntry menuEntry)
+    {
+        String option = menuEntry.getOption();
+
+        final Tile tile = client.getSelectedSceneTile();
+        if (tile == null)
+        {
+            return;
+        }
+
+        WorldPoint location = tile.getWorldLocation();
+
+        if (option.contains("Start"))
+        {
+            start = location;
+            sendGameMessage("Start Set");
+        }
+
+        if (option.contains("End"))
+        {
+            end = location;
+            sendGameMessage("End Set");
+        }
+
+        if (end != null && start != null)
+        {
+            pathfinder = new Pathfinder(start, end, pathfinderConfig);
+            sendGameMessage("Path Generated");
+        }
+    }
+
+    private void label(MenuEntry menuEntry)
+    {
+        String option = menuEntry.getOption();
+
+        if (option.contains("Start"))
+        {
+            chatboxPanelManager.openTextInput("Start label")
+                    .value(Optional.ofNullable(startLabel).orElse(""))
+                    .onDone((input) ->
+                    {
+                        input = Strings.emptyToNull(input);
+                        startLabel = input;
+                        sendGameMessage(String.format("Start Label: %s", startLabel));
+                    })
+                    .build();
+        }
+
+        if (option.contains("End"))
+        {
+            chatboxPanelManager.openTextInput("End label")
+                    .value(Optional.ofNullable(endLabel).orElse(""))
+                    .onDone((input) ->
+                    {
+                        input = Strings.emptyToNull(input);
+                        endLabel = input;
+                        sendGameMessage(String.format("End Label: %s", endLabel));
+                    })
+                    .build();
+        }
+    }
+
+    public void sendGameMessage(String message)
+    {
+        String chatMessage = new ChatMessageBuilder()
+                .append(ChatColorType.HIGHLIGHT)
+                .append(message)
+                .build();
+
+        chatMessageManager
+                .queue(QueuedMessage.builder()
+                        .type(ChatMessageType.CONSOLE)
+                        .runeLiteFormattedMessage(chatMessage)
+                        .build());
     }
 
     // Load a specific json from the resourceFileNames List
@@ -229,42 +404,53 @@ public class AccountPathsPlugin extends Plugin
 
             for (int i = 0; i < tileArray.length(); i++)
             {
-                JSONObject tile = tileArray.getJSONObject(i);
+                JSONObject set = tileArray.getJSONObject(i);
 
-                if (!tile.has("positions"))
+                if (!set.has("start") && !set.has("end"))
                 {
                     continue;
                 }
 
-                String label = tile.getString("label");
-                int x = tile.getInt("x");
-                int y = tile.getInt("y");
-                int z = tile.getInt("z");
-                int region = tile.getInt("region");
-                JSONArray positions = tile.getJSONArray("positions");
+                JSONObject startObject = set.getJSONObject("start");
 
-                WorldPoint wp = WorldPoint.fromRegion(region, x, y, z);
-                AccountPathsTile accountPathsTile = new AccountPathsTile();
-                accountPathsTile.setLabel(label);
-                accountPathsTile.setX(x);
-                accountPathsTile.setY(y);
-                accountPathsTile.setZ(z);
-                accountPathsTile.setRegion(region);
-                accountPathsTile.setWorldPoint(wp);
-                accountPathsTile.setPositions(positions);
+                WorldPoint start = WorldPoint.fromRegion(startObject.getInt("region"),
+                        startObject.getInt("x"), startObject.getInt("y"), startObject.getInt("z"));
 
-                tileCollection.add(accountPathsTile);
+                String startLabel;
+                if (startObject.has("label"))
+                {
+                    startLabel = startObject.getString("label");
+                } else {
+                    startLabel = "";
+                }
+
+                JSONObject endObject = set.getJSONObject("end");
+
+                WorldPoint end = WorldPoint.fromRegion(endObject.getInt("region"),
+                        endObject.getInt("x"), endObject.getInt("y"), endObject.getInt("z"));
+
+                String endLabel;
+                if (endObject.has("label"))
+                {
+                    endLabel = endObject.getString("label");
+                } else {
+                    endLabel = "";
+                }
+
+                Pathfinder pathfinder = new Pathfinder(start, end, pathfinderConfig);
+
+                if (pathfinder == null || pathfinder.getPath() == null)
+                {
+                    continue;
+                }
+
+                AccountPathsTile apt = new AccountPathsTile(start, startLabel, end, endLabel, pathfinder);
+
+                tileCollection.add(apt);
+
             }
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
-        }
-
-        for (AccountPathsTile tile : tileCollection)
-        {
-            for (Integer position : tile.getPositionList())
-            {
-                tileMap.put(position, tile);
-            }
         }
     }
 

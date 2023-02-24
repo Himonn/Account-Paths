@@ -28,6 +28,13 @@ public interface AccountPathsConfig extends Config {
     default int index() { return 0; }
 
     @ConfigItem(
+            keyName = "index",
+            name = "",
+            description = ""
+    )
+    void setIndex(String index);
+
+    @ConfigItem(
             name = "Highlight Tiles",
             description = "Highlights tiles on path",
             position = 2,

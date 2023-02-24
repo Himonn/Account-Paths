@@ -1,5 +1,6 @@
 package com.accountpaths;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import net.runelite.api.coords.WorldPoint;
@@ -10,42 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@AllArgsConstructor
 public class AccountPathsTile {
 
     @Getter
     @Setter
-    private int x;
+    private WorldPoint start;
     @Getter
     @Setter
-    private int y;
+    private String startLabel;
     @Getter
     @Setter
-    private int z;
+    private WorldPoint end;
     @Getter
     @Setter
-    private int region;
+    private String endLabel;
     @Getter
     @Setter
-    private String label;
-    @Getter
-    @Setter
-    private WorldPoint worldPoint;
-    @Getter
-    @Setter
-    private JSONArray positions;
-
-    public List<Integer> getPositionList()
-    {
-        List<Integer> list = new ArrayList<>();
-        for (Object o : positions.toList())
-        {
-            if (o instanceof Integer)
-            {
-                list.add((Integer) o);
-            }
-        }
-
-        return list;
-    }
-
+    private Pathfinder pathfinder;
 }
